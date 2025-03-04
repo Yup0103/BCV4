@@ -55,12 +55,12 @@ const MainLayout: React.FC = () => {
     const timer = setTimeout(() => {
       // Find the undo/redo container if it's available in the DOM
       const undoButtons = document.querySelectorAll('button[title="Undo"], button[title="Redo"]');
-      
+
       if (undoButtons.length >= 2) {
         // Get the parent container of the first undo/redo button
         const firstButton = undoButtons[0];
         const parentContainer = firstButton.parentElement;
-        
+
         if (parentContainer) {
           // Add our custom class to the parent container
           parentContainer.classList.add('undo-redo-container');
@@ -81,7 +81,7 @@ const MainLayout: React.FC = () => {
           button.style.margin = '0';
           button.style.overflow = 'hidden';
         }
-        
+
         // Check if button contains keyboard or help icon
         const svgIcons = button.querySelectorAll('svg');
         svgIcons.forEach(svg => {
@@ -94,7 +94,7 @@ const MainLayout: React.FC = () => {
       });
 
     }, 500);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
